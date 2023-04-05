@@ -13,10 +13,10 @@ from subprocess import getoutput
 
 KMIP_IP = '127.0.0.1'
 SERVER_PORT = '5696'
-CERT_PATH = '/etc/pykmip/client_certificate.pem'
-KEY_PATH = '/etc/pykmip/client_key.pem'
+CERT_PATH = '/root/pykmip-containers/files/client_certificate.pem'
+KEY_PATH = '/root/pykmip-containers/files/client_key.pem'
 KEY_BITS=3072
-CA_PATH = '/etc/pykmip/root_certificate.pem'
+CA_PATH = '/root/pykmip-containers/files/root_certificate.pem'
 TEMP_DIRECTORY = 'temp'
 KEY_HEX_OUTPUT= TEMP_DIRECTORY + '/' + 'key_output.txt'
 

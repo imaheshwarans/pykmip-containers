@@ -1,0 +1,14 @@
+version: '3'
+services:
+   pykmip:
+     image: $PYKMIP_IMAGE_NAME
+     container_name: pykmip-server
+     restart: unless-stopped
+     ports:
+       - "5696:5696"
+     env_file:
+      - pykmip.env
+     volumes:
+        - $PYKMIP_PATH:/etc/pykmip
+        - $LOG_PATH:/var/log/pykmip
+      

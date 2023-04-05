@@ -16,7 +16,7 @@ ln -s /usr/bin/python3 /usr/bin/python  > /dev/null 2>&1
 wget https://bootstrap.pypa.io/pip/3.6/get-pip.py
 /usr/bin/python3 get-pip.py
 ln -s /usr/bin/pip3 /usr/bin/pip  > /dev/null 2>&1 
-pip3 install setuptools-rust pykmip==0.9.1 || exit 1
+pip3 install setuptools setuptools-rust pykmip==0.9.1 || exit 1
 
 echo "Setting up PYKMIP Linux User..."
 id -u $SERVICE_USERNAME 2> /dev/null || useradd --comment "PYKMIP SERVER" --home $PRODUCT_HOME --shell /bin/false $SERVICE_USERNAME
@@ -53,7 +53,7 @@ cp -pf ./root/pykmip/server.conf $PYKMIP_PATH
 
 # Run certificate script to generate certificates
 cd $PYKMIP_PATH
-python3 create_certificates.py $KBS_KMIP_IP
+python3 create_certificates.py 127.0.0.1
 if [ $? -ne 0 ]; then
 	echo "${red} Create Certificates failed"
 	exit 1
